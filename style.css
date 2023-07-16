@@ -1,51 +1,56 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap');
-
 * {
-    font-family: 'Inconsolata', monospace;
-}
-
-.content {
+    font-family: "Inconsolata", monospace;
+    margin: 0;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .content {
     position: absolute;
     top: 0%;
     bottom: 0%;
     right: 0%;
     left: 0%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-}
-
-#color {
-    background-color: red;
+    flex-wrap: nowrap;
+  }
+  
+  .colorContainer {
     color: white;
-    margin: 20px;
-    width: 400px;
-    height: 200px;
+    flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-#colorHex {
+  }
+  
+  .colorHex {
     background-color: #121212;
     color: white;
     padding: 5px;
-}
-
-button {
+  }
+  
+  button {
+    position: absolute;
+    bottom: 10%;
+    right: 40%;
+    left: 40%;
+    z-index: 10;
     padding: 10px;
     font-size: 20px;
     outline: none;
-    border: none;
+    border: 4px white solid;
     background-color: #121212;
     color: white;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
     cursor: pointer;
-}
-
-button:hover {
+  }
+  
+  button:hover {
     background-color: black;
     transform: scale(1.1);
-}
+  }
+  
