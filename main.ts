@@ -1,4 +1,4 @@
-function generateColor(): string {
+const generateColor = (): string => {
     let hexColor: string = '';
 
     for (let i = 0; i < 6; i++) {
@@ -10,24 +10,29 @@ function generateColor(): string {
 }
 
 
-
-function changeColorText(): void {
-    let colorContainers = document.querySelectorAll('colorContainer') as NodeListOf<HTMLElement>;
-    let colorHexs = document.querySelectorAll('colorHex');
-
+const changeColorText = () => {
+    let palette: string[] = [];
+    let colorContainers = document.querySelectorAll('.colorContainer') as NodeListOf<HTMLElement>;
+    
     colorContainers.forEach((container) => {
         if (container) {
-            container.style.backgroundColor = `#${generateColor()}`;
-        }
-    })
+            let generatedColorHex;
+            do {
+                generatedColorHex = generateColor();     
+            } while (!palette.includes(generatedColorHex));
 
-    colorHexs .forEach((hex) => {
-        if (hex) {
-            hex.innerHTML = `#${generateColor()}`;
+            palette.push(generatedColorHex);
+            
+            container.style.backgroundColor = `#${generatedColorHex}`;
+
+            let hex = container.querySelector('.colorHex');
+            if (hex) {
+                hex.innerHTML = `#${generatedColorHex}`;
+            }
         }
     })
 }
 
-function button() {
+function button() {    
     changeColorText();
 }
